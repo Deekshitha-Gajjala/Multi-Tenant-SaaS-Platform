@@ -59,8 +59,9 @@ const runMigrations = async () => {
 const startServer = async () => {
     await runMigrations();
     const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-};
+    app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 if (require.main === module) {
     startServer();
